@@ -256,7 +256,7 @@ export class TileMap extends React.PureComponent<Props, State> {
   }
 
   handleClick = (event: MouseEvent) => {
-    const [x, y] = this.mouseToCoords(event.layerX, event.layerY)
+    const [x, y] = this.mouseToCoords(event.offsetX, event.offsetY)
     if (!this.inBounds(x, y)) {
       return
     }
@@ -279,7 +279,7 @@ export class TileMap extends React.PureComponent<Props, State> {
     const { onMouseDown } = this.props
     this.mousedownTimestamp = Date.now()
     if (onMouseDown) {
-      const [x, y] = this.mouseToCoords(event.layerX, event.layerY)
+      const [x, y] = this.mouseToCoords(event.offsetX, event.offsetY)
       if (!this.inBounds(x, y)) {
         return
       }
@@ -289,8 +289,8 @@ export class TileMap extends React.PureComponent<Props, State> {
   }
 
   handleMouseMove = (event: MouseEvent) => {
-    const { layerX, layerY } = event
-    const [x, y] = this.mouseToCoords(layerX, layerY)
+    const { offsetX, offsetY } = event
+    const [x, y] = this.mouseToCoords(offsetX, offsetY)
     if (!this.inBounds(x, y)) {
       this.hidePopup()
       return
@@ -298,7 +298,7 @@ export class TileMap extends React.PureComponent<Props, State> {
 
     if (!this.hover || this.hover.x !== x || this.hover.y !== y) {
       this.hover = { x, y }
-      this.showPopup(x, y, layerY, layerX)
+      this.showPopup(x, y, offsetX, offsetY)
     }
   }
 

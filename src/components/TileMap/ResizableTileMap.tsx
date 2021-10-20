@@ -5,9 +5,11 @@ import { TileMap } from './TileMap'
 import { Props } from './TileMap.types'
 
 type ResizableProps = Omit<Props, 'width' | 'height'>
-const resizableDefaultProps = { ...TileMap.defaultProps }
-delete resizableDefaultProps.width
-delete resizableDefaultProps.height
+const resizableDefaultProps = {
+  ...TileMap.defaultProps,
+  width: undefined,
+  height: undefined,
+};
 
 export class ResizableTileMap extends React.PureComponent<ResizableProps> {
   static defaultProps = resizableDefaultProps

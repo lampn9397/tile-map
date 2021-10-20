@@ -3,14 +3,14 @@ import { Props } from './TileMap.types';
 declare type ResizableProps = Omit<Props, 'width' | 'height'>;
 export declare class ResizableTileMap extends React.PureComponent<ResizableProps> {
     static defaultProps: {
+        width: undefined;
+        height: undefined;
         x: number;
         y: number;
         className: string;
         initialX: number;
         initialY: number;
         size: number;
-        width: number;
-        height: number;
         zoom: number;
         minSize: number;
         maxSize: number;
