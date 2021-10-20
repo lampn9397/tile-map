@@ -1,6 +1,6 @@
-*.d.ts
-*.js
-*.css
+# *.d.ts
+# *.js
+# *.css
 node_modules
-storybook-static
-lib
+# storybook-static
+# lib
