@@ -431,12 +431,15 @@ export class TileMap extends React.PureComponent<Props, State> {
   render() {
     const { width, height, className } = this.props
 
-    const styles = { width, height }
+    // const styles = { width, height }
 
     const classes = ('react-tile-map ' + className).trim()
 
     return (
-      <div className={classes} style={styles}>
+      <div
+        className={classes}
+        // style={styles}
+      >
         <canvas
           className={this.getCanvasClassName()}
           width={width}
